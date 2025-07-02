@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Articles du Karaté</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 20px;
+      margin: 0;
+      color: rgb(81, 255, 0);
+      background-image: url('KAR.jpg'); 
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-attachment: fixed;
+    }
+
+    header {
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 30px 20px;
+      color: white;
+      border-bottom: 3px solid #007BFF;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 36px;
+      letter-spacing: 1px;
+    }
+
+    .articles-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      padding: 20px;
+      max-width: 1300px;
+      margin: auto;
+    }
+
+    .article {
+      flex: 1 1 22%;
+      max-width: 22%;
+      min-width: 250px;
+      background-color: rgba(0, 0, 0, 0.8);
+      padding: 15px;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(255, 255, 255, 0.2);
+      color: white;
+    }
+
+    .article img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 5px;
+    }
+
+    .btn {
+      display: inline-block;
+      margin: 5px;
+      padding: 8px 12px;
+      background-color: #007BFF;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+
+    .btn:hover {
+      background-color: #0056b3;
+    }
+
+    .footer {
+      text-align: center;
+      margin: 40px 0 10px;
+      color: #000;
+      font-size: 16px;
+    }
+
+    .footer a {
+      color: #ffdd57;
+      text-decoration: none;
+    }
+
+    .footer a:hover {
+      text-decoration: underline;
+    }
+
+    #cart {
+      background: rgba(255, 255, 255, 0.8);
+      color: black;
+      padding: 15px;
+      border-radius: 10px;
+      margin: 30px auto;
+      width: 80%;
+      max-width: 500px;
+    }
+
+    #order-form {
+      display: none;
+      background: white;
+      color: black;
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 500px;
+      margin: 30px auto;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>BIENVENU SUR SPORTACCESS</h1>
+    <p><h2>Vos articles du Karaté</h2></p>
+  </header>
+
+  <div class="articles-container" id="articles-container"></div>
+
+  <div id="cart">
+    <h2>🛒 Panier</h2>
+    <ul id="cart-list"></ul>
+    <p>Total : <span id="cart-total">0</span> USD</p>
+    <button class="btn" onclick="showForm()">Commander</button>
+  </div>
+
+  <div id="order-form">
+    <h2>Formulaire de Commande</h2>
+    <form id="form">
+      <input type="text" placeholder="Nom" id="nom" required><br><br>
+      <input type="text" placeholder="Post-nom" id="postnom" required><br><br>
+      <input type="text" placeholder="Prénom" id="prenom" required><br><br>
+      <input type="text" placeholder="Adresse de livraison" id="adresse" required><br><br>
+      <input type="datetime-local" id="livraison" required><br><br>
+      <button type="button" class="btn" onclick="envoyer('whatsapp')">Envoyer via WhatsApp</button>
+      <button type="button" class="btn" onclick="envoyer('mail')">Envoyer par Email</button>
+    </form>
+  </div>
+
+  <div class="footer">
+    <p>Autres moyens de commande :<br>
+    Email : <a href="mailto:mbarnabas230@gmail.com">mbarnabas230@gmail.com</a><br>
+    Facebook : <a href="https://facebook.com" target="_blank">Michael Barnabas Kamu</a></p>
+  </div>
+
+  <script>
+    const products = [
+      { name: "Ceinture", price: 31, image: "JUDOS5.jpg" },
+      { name: " Bandage ", price: 21, image: "JUDO1.jpg" },
+      { name: "Kumono", price: 37, image: "JUDO3.jpg" },
+      { name: "Protège Tibiat", price: 55, image: "K4.jpg" },
+      { name: "Serviette", price: 215, image: "K5.jpg" },
+      { name: "Tapis", price: 25, image: "JUDO7.jpg" },
+      { name: "Sac", price: 37, image: "K7.jpg" },
+      { name: "Palette Tactile", price: 25, image: "K8.jpg" },
+      { name: "Kettlebell", price: 25, image: "JUDO10.jpg" },
+      { name: "Manéquin de frappe", price: 25, image: "K10.jpg" },
+      { name: "Paos", price: 25, image: "PAOS.jpg" },
+      { name: "Manéquin d'entrainnement", price: 25, image: "K12.jpg" },
+      { name: "Protège-dents", price: 60, image: "K13.jpg" },
+      { name: "Coquille de Protection", price: 60, image: "K14.jpg" },
+      { name: "Corde", price: 25, image: "LG.jpg" },
+      { name: "Tapis", price: 15, image: "K16.jpg" },
+      { name: "Paos Resistant", price: 30, image: "K17.jpg" },
+      { name: "Protège Cheville et gant", price: 45, image: "K18.jpg" },
+      { name: "Sac de frappe", price: 35, image: "K19.jpg" },
+      { name: "Gant", price: 10, image: "K20.jpg" },
+      { name: "Balance", price: 20, image: "K21.jpg" }
+    ];
+
+    const cart = [];
+
+    function renderProducts() {
+      const container = document.getElementById('articles-container');
+      products.forEach((product, index) => {
+        const div = document.createElement('div');
+        div.className = 'article';
+        div.innerHTML = `
+          <a href="${product.image}" target="_blank">
+            <img src="${product.image}" alt="${product.name}">
+          </a>
+          <h2>${product.name}</h2>
+          <p>Prix : ${product.price} USD</p>
+          <button class="btn" onclick="addToCart(${index})">Ajouter au panier</button>
+        `;
+        container.appendChild(div);
+      });
+    }
+
+    function addToCart(index) {
+      cart.push(products[index]);
+      updateCart();
+    }
+
+    function updateCart() {
+      const list = document.getElementById('cart-list');
+      const total = document.getElementById('cart-total');
+      list.innerHTML = '';
+      let sum = 0;
+      cart.forEach(item => {
+        const li = document.createElement('li');
+        li.textContent = `${item.name} - ${item.price} USD`;
+        list.appendChild(li);
+        sum += item.price;
+      });
+      total.textContent = sum;
+    }
+
+    function showForm() {
+      if (cart.length === 0) {
+        alert("Votre panier est vide.");
+        return;
+      }
+      document.getElementById('order-form').style.display = 'block';
+    }
+
+    function envoyer(mode) {
+      const nom = document.getElementById('nom').value;
+      const postnom = document.getElementById('postnom').value;
+      const prenom = document.getElementById('prenom').value;
+      const adresse = document.getElementById('adresse').value;
+      const livraison = document.getElementById('livraison').value;
+      const articles = cart.map(item => `- ${item.name} (${item.price} USD)`).join("\n");
+      const total = cart.reduce((acc, item) => acc + item.price, 0);
+
+      const message = `Commande de ${nom} ${postnom} ${prenom}\nAdresse: ${adresse}\nLivraison prévue: ${livraison}\nArticles:\n${articles}\nTotal: ${total} USD`;
+
+      if (mode === 'whatsapp') {
+        const whatsappURL = `https://wa.me/243838877213?text=${encodeURIComponent(message)}`;
+        window.open(whatsappURL, '_blank');
+      } else {
+        window.location.href = `mailto:mbarnabas230@gmail.com?subject=Nouvelle commande&body=${encodeURIComponent(message)}`;
+      }
+    }
+
+    window.onload = renderProducts;
+  </script>
+</body>
+</html>

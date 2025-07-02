@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>SportAccès - Tous les Sports</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #0e043c;
+      color: #ffffff;
+    }
+
+    nav {
+      background-color: hwb(0 0% 50%);
+      display: flex;
+      align-items: center;
+      padding: 12px 20px;
+      color: rgb(0, 11, 61);
+    }
+
+    .nav-brand {
+      font-size: 18px;
+      font-weight: bold;
+      margin-right: 40px;
+    }
+
+    .nav-links a {
+      color: rgba(12, 8, 98, 0.388);
+      margin-right: 25px;
+      text-decoration: none;
+      font-size: 16px;
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: #ffcc00;
+    }
+
+    .header-banner {
+      background-image: url('SURF.jpg');
+      background-size: cover;
+      background-position: center;
+      height: 300px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: rgb(255, 255, 255);
+      padding: 50px;
+      position: relative;
+    }
+
+    .header-banner h1 {
+      font-size: 40px;
+      font-weight: bold;
+      text-shadow: 2px 2px 4px rgb(255, 255, 255);
+    }
+
+    .header-banner p {
+      font-size: 20px;
+      margin-top: 10px;
+      text-shadow: 2px 2px 4px rgb(255, 255, 255);
+    }
+
+    .main-content {
+      padding: 20px;
+    }
+
+    h2 {
+      text-align: center;
+      color: #007BFF;
+    }
+
+    .category {
+      margin-top: 40px;
+    }
+
+    .sports-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .sport-card {
+      width: 200px;
+      border: 1px solid #000000;
+      border-radius: 10px;
+      overflow: hidden;
+      text-align: center;
+      background-color: #000000;
+      transition: transform 0.2s;
+    }
+
+    .sport-card:hover {
+      transform: scale(1.03);
+    }
+
+    .sport-button {
+      background: none;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    .sport-button img {
+      width: 100%;
+      height: 130px;
+      object-fit: cover;
+      border: none;
+    }
+
+    .icon {
+      width: 50px;
+      height: 50px;
+      margin: 10px auto 5px;
+    }
+
+    .sport-card p {
+      margin: 10px;
+      font-weight: bold;
+      color: #007BFF;
+    }
+
+    a {
+      color: #007BFF;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* Galerie défilante */
+    .carousel {
+      overflow-x: auto;
+      white-space: nowrap;
+      padding: 20px;
+      background-color: #f0f0f0;
+    }
+
+    .carousel-track {
+      display: inline-flex;
+      gap: 10px;
+    }
+
+    .carousel img {
+      width: 180px;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 10px;
+      border: 2px solid #000000;
+      transition: transform 0.3s;
+    }
+
+    .carousel img:hover {
+      transform: scale(1.05);
+      border-color: #007BFF;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Barre de navigation -->
+  <nav>
+    <div class="nav-brand">Simon Rayan</div>
+    <div class="nav-links">
+      <a href="PROPOS.html">À propos de nous</a>
+      <a href="AIDE.html">Aide</a>
+    </div>
+  </nav>
+
+  <!-- Image de couverture -->
+  <div class="header-banner">
+    <h1><B>Bienvenue sur SportAccès</B></h1>
+    <p><B>Explore tous les sports et découvre leurs accessoires à vendre !</B></p>
+  </div>
+
+  <!-- Contenu principal -->
+  <div class="main-content">
+
+    <!-- SPORTS DE COMBAT -->
+    <div class="category">
+      <h2>Sports de Combat</h2>
+      <div class="sports-grid">
+        <div class="sport-card">
+          <img src="icons/boxe.png" class="icon" alt="Icône Boxe">
+          <a href="Boxe.html"><button class="sport-button"><img src="ICBOXE.png" alt="Boxe"></button></a>
+          <p>Boxe</p>
+        </div>
+        <div class="sport-card">
+          <img src="icons/judo.png" class="icon" alt="Icône Judo">
+          <a href="Judo.html"><button class="sport-button"><img src="ICJUDO.jpg" alt="Judo"></button></a>
+          <p>Judo</p>
+        </div>
+        <div class="sport-card">
+          <img src="icons/karate.png" class="icon" alt="Icône Karaté">
+          <a href="KARATE.html"><button class="sport-button"><img src="KARATE.jpg" alt="Karaté"></button></a>
+          <p>Karaté</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- SPORTS DE BALLON -->
+    <div class="category">
+      <h2>Sports de Ballon</h2>
+      <div class="sports-grid">
+        <div class="sport-card">
+         <img src="icons/Football.jpg" class="icon" alt="Icône Football">
+          <a href="football.html"><button class="sport-button"><img src="PA.jpg" alt="Football"></button></a>
+          <p>Football</p>
+        </div>
+        <div class="sport-card">
+          <img src="BAS.png" class="icon" alt="Icône Basketball">
+          <a href="BASKETBALL.html"><button class="sport-button"><img src="BAS.jpg" alt="Basketball"></button></a>
+          <p>Basketball</p>
+        </div>
+        <div class="sport-card">
+          <img src="HAND1.png" class="icon" alt="Icône Handball">
+          <a href="HANDBALL.html"><button class="sport-button"><img src="HAND1.jpg" alt="Handball"></button></a>
+          <p>Handball</p>
+        </div>
+        <div class="sport-card">
+          <img src="AMMAM.png" class="icon" alt="Icône FootAme">
+          <a href="FOOTBALLAMERICAN.html"><button class="sport-button"><img src="AMMAM.jpg" alt="FootAME"></button></a>
+          <p>Foot_Amme</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- FITNESS & MUSCULATION -->
+    <div class="category">
+      <h2>Fitness & Musculation</h2>
+      <div class="sports-grid">
+        <div class="sport-card">
+          <img src="icons/musculation.png" class="icon" alt="Icône Muscu">
+          <a href="Musculation.html"><button class="sport-button"><img src="MUS.jpg" alt="Musculation"></button></a>
+          <p>Musculation</p>
+        </div>
+        <div class="sport-card">
+          <img src="icons/yoga.png" class="icon" alt="Icône Yoga">
+          <a href="Yoga.html"><button class="sport-button"><img src="YOGA1.jpg" alt="Yoga"></button></a>
+          <p>Yoga</p>
+        </div>
+         <div class="sport-card">
+          <img src="icons/Fitness.png" class="icon" alt="Icône Fitness">
+          <a href="Fitness.html"><button class="sport-button"><img src="FART.jpg" alt="Yoga"></button></a>
+          <p>Fitness</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- SPORTS AQUATIQUES -->
+    <div class="category">
+      <h2>Sports Aquatiques</h2>
+      <div class="sports-grid">
+        <div class="sport-card">
+          <img src="icons/natation.png" class="icon" alt="Icône Natation">
+          <a href="Natation.html"><button class="sport-button"><img src="NAT.jpg" alt="Natation"></button></a>
+          <p>Natation</p>
+        </div>
+        <div class="sport-card">
+          <img src="icons/surf.jpg" class="icon" alt="Icône Surf">
+          <a href="Surf.html"><button class="sport-button"><img src="SURF.png" alt="Surf"></button></a>
+          <p>Surf</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- GALERIE DÉFILANTE -->
+    <div style="margin-top: 60px;">
+      <h2 style="text-align: center; color: #007BFF;">Galerie des Sports</h2>
+      <div class="carousel">
+        <div class="carousel-track"><marquee>
+          <img src="ICFOOT.png" alt="Sport 1">
+          <img src="HAND5.jpg" alt="Sport 2">
+          <img src="H11.jpg" alt="Sport 3">
+          <img src="K16.jpg" alt="Sport 4">
+          <img src="SURF.png" alt="Sport 5">
+          <img src="HAND3.jpg" alt="Sport 6">
+          <img src="LLR.jpg" alt="Sport 7">
+          <img src="BAS6.jpg" alt="Sport 8">
+          <img src="ICJUDO.jpg" alt="Sport 9">
+          <img src="H18.jpg" alt="Sport 10">
+          <img src="BR.jpg" alt="Sport 11">
+          <img src="img12.jpg" alt="Sport 12">
+          <img src="BAS4.jpg" alt="Sport 13">
+          <img src="FIT18.jpg" alt="Sport 14">
+          <img src="FIT10.jpg" alt="Sport 15">
+          <img src="HAND3.jpg" alt="Sport 16">
+          <img src="J20.jpg" alt="Sport 17">
+          <img src="K8.jpg" alt="Sport 18">
+          <img src="BACKGROUND.jpg" alt="Sport 19">
+          <img src="BANDER.jpg" alt="Sport 20">
+          <img src="SIM.jpg" alt="Sport 21"></marquee>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>
